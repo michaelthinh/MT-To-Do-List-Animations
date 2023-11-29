@@ -34,11 +34,10 @@ export default function NewChallenge({ onDone }) {
             !challenge.deadline.trim() ||
             !challenge.image
         ) {
-            console.log("cc");
             animate(
                 "input,textarea",
                 { x: [-10, 0, 10, 0] },
-                { type: "keyframes", duration: 0.2, delay: stagger(0.05) }
+                { type: "spring", duration: 0.2, delay: stagger(0.05) }
             );
             return;
         }
@@ -89,10 +88,9 @@ export default function NewChallenge({ onDone }) {
                             variants={{
                                 start: { opacity: 0, scale: 0.5 },
                                 visible: { opacity: 1, scale: [0.8, 1.3, 1] },
-                                end: {},
                             }}
                             exit={{ opacity: 1, scale: 1 }}
-                            transition={{ type: "spring" }}
+                            transition={{ type: "spring", duration: 0.2 }}
                             key={image.alt}
                             onClick={() => handleSelectImage(image)}
                             className={
