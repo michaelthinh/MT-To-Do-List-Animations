@@ -78,7 +78,7 @@ export default function NewChallenge({ onDone }) {
                     variants={{
                         visible: {
                             transition: {
-                                staggerChildren: 0.05,
+                                staggerChildren: 0.1,
                             },
                         },
                     }}
@@ -89,8 +89,12 @@ export default function NewChallenge({ onDone }) {
                                 start: { opacity: 0, scale: 0.5 },
                                 visible: { opacity: 1, scale: [0.8, 1.3, 1] },
                             }}
-                            exit={{ opacity: 1, scale: 1 }}
-                            transition={{ type: "spring", duration: 0.2 }}
+                            exit={{
+                                opacity: 1,
+                                scale: 1,
+                                transition: { duration: 0.1 },
+                            }}
+                            transition={{ type: "spring" }}
                             key={image.alt}
                             onClick={() => handleSelectImage(image)}
                             className={
